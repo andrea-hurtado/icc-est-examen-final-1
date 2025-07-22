@@ -2,8 +2,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
 import java.util.Stack;
-
-import controllers.MaquinaController;
+//import controllers.MaquinaController;
 import models.Maquina;
 
 public class App {
@@ -65,7 +64,30 @@ public class App {
                 new Maquina("Nodo7", "23.248.75.5", Arrays.asList(18, 28, 10, 27, 29)),
                 new Maquina("Nodo6", "169.238.150.174", Arrays.asList(6, 14, 3)),
                 new Maquina("DB13", "71.248.50.86", Arrays.asList(17, 11, 12)));
+
+
+
+        //Maquina controller = MaquinaController();
+
+        System.out.println("Metodo A - filtrarPorSubred > 100: ");
+        //Stack<Maquina> pila = controller.filtrarPorSubred(maquinas, 100);
+        //pila.forEach(System.out::println);
+        //return maquinas;
+
+        System.out.println("\\n Metodo B - odernarPorSubred: ");
+        //Stack<Maquina> ordenado = controller.ordenarPorSubred(pila);
+        //ordenado.forEach(System.out::println);
+
+        System.out.println(" \\n Metodo B - agruparPorRiesgo: ");
+        //Map<Integer, Queue<Maquina>> mapa = controller.agruparPorRiesgo(maquinas);
+        //mapa.forEach((riesgo, cola) ->{
+        //    System.out.println("Riesgo" + riesgo + cola);
+
+        //});
         return maquinas;
+    
 
     }
+
+    
 }

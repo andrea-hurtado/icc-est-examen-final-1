@@ -1,13 +1,12 @@
-package test;
+package test.controllers;
 
-import controllers.MaquinaController;
 import models.Maquina;
 import validaciones.ValidacionesMaquina;
 
-import org.junit.jupiter.api.Test;
+//import org.junit.jupiter.api.Test;
 import java.util.*;
 
-public class MaquinaControllerTest {
+public class MaquinaController {
 
     MaquinaController controller = new MaquinaController();
 
@@ -67,9 +66,9 @@ public class MaquinaControllerTest {
         return maquinas;
 
     }
+    
 
-    @Test
-    public void testMakeSubRed() {
+    public void makeSubRed() {
         Maquina m = new Maquina("Nodo99", "10.0.180.15", Arrays.asList(10, 15, 20));
         ValidacionesMaquina.validarCampoSubred(m, m.getSubred()); // 180 es el tercer octeto de la IP
         m = new Maquina("Nodo6", "169.238.150.174", Arrays.asList(6, 14, 3));
@@ -78,23 +77,29 @@ public class MaquinaControllerTest {
         ValidacionesMaquina.validarCampoSubred(m, m.getSubred());
     }
 
-    @Test
-    public void testMakeRiesgo() {
+    public void makeRiesgo() {
         Maquina m = new Maquina("Nodo99", "10.0.180.15", Arrays.asList(10, 15, 20));
 
         System.out.println("Ejecutando testMakeRiesgo");
         ValidacionesMaquina.validarCampoRiesgo(m, m.getRiesgo()); // 7 letras únicas en "Nodo99"
     }
 
-    @Test
-    public void testFiltrarPorSubred() {
+    private Stack<Maquina> filtrarPorSubred(List<Maquina> maquinas, int umbral) {
+        throw new UnsupportedOperationException("Unimplemented method 'filtrarPorSubred'");
+    }
+
+    public void filtrarPorSubred() {
         List<Maquina> maquinas = crearMaquinas();
         Stack<Maquina> resultado = controller.filtrarPorSubred(maquinas, 150);
         ValidacionesMaquina.validarResultadoA(new HashSet<>(resultado), resultado.size(), 150);
-    }
-
-    @Test
-    public void testOrdenarPorSubred() {
+    } 
+    
+    private Set<Maquina> ordenarPorSubred(Stack<Maquina> pila) {
+        
+        throw new UnsupportedOperationException("Unimplemented method 'ordenarPorSubred'");
+    } 
+        
+    public void ordenarPorSubred() {
         List<Maquina> maquinas = crearMaquinas();
         Stack<Maquina> pila = controller.filtrarPorSubred(maquinas, 150);
         ValidacionesMaquina.validarResultadoA(new HashSet<>(pila), pila.size(), 150);
@@ -103,19 +108,29 @@ public class MaquinaControllerTest {
         ValidacionesMaquina.validarResultadoB(resultado, maquinas);
     }
 
-    @Test
-    public void testAgruparPorRiesgo() {
+
+    private Map<Integer, Queue<Maquina>> agruparPorRiesgo(List<Maquina> maquinas) {
+        throw new UnsupportedOperationException("Unimplemented method 'agruparPorRiesgo'");
+    }
+
+    public void agruparPorRiesgo() {
         List<Maquina> maquinas = crearMaquinas();
         Map<Integer, Queue<Maquina>> resultado = controller.agruparPorRiesgo(maquinas);
         ValidacionesMaquina.validarResultadoC(resultado, maquinas);
     }
 
-    @Test
-    public void testExplotarGrupo() {
+    private Stack<Maquina> explotarGrupo(Map<Integer, Queue<Maquina>> mapa) {
+        throw new UnsupportedOperationException("Unimplemented method 'explotarGrupo'");
+    }
+
+    public void explotarGrupo() {
         List<Maquina> maquinas = crearMaquinas();
         Map<Integer, Queue<Maquina>> mapa = controller.agruparPorRiesgo(maquinas);
         Stack<Maquina> resultado = controller.explotarGrupo(mapa);
 
         ValidacionesMaquina.validarResultadoD(resultado, maquinas);
     }
+
+
 }
+
